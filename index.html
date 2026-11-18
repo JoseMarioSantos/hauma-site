@@ -1,0 +1,799 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="pt-BR"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;margin:0;padding:0;background-color:#0c1322;}body{overscroll-behavior:none;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={darkMode:"class",theme:{extend:{"colors":{"primary-container":"#0e2138","surface-bright":"#323949","tertiary":"#68dba9","secondary-container":"#af8d11","tertiary-container":"#002618","on-error":"#690005","tertiary-fixed":"#85f8c4","on-surface":"#dce2f7","on-background":"#dce2f7","inverse-surface":"#dce2f7","on-tertiary-container":"#139a6d","surface-container-high":"#232a3a","surface":"#0c1322","inverse-primary":"#4e5f79","tertiary-fixed-dim":"#68dba9","surface-container":"#191f2f","error-container":"#93000a","primary-fixed":"#d4e3ff","on-secondary":"#3c2f00","secondary":"#e9c349","on-error-container":"#ffdad6","outline":"#8e9197","secondary-fixed-dim":"#e9c349","on-secondary-fixed":"#241a00","surface-variant":"#2e3545","on-primary-fixed":"#081c33","on-secondary-fixed-variant":"#574500","on-secondary-container":"#342800","surface-tint":"#b5c8e6","on-tertiary-fixed":"#002114","error":"#ffb4ab","outline-variant":"#44474d","on-primary":"#1f3149","primary":"#b5c8e6","on-primary-fixed-variant":"#364861","surface-container-lowest":"#070e1d","on-tertiary-fixed-variant":"#005137","inverse-on-surface":"#293040","on-primary-container":"#7789a5","surface-container-low":"#141b2b","on-tertiary":"#003825","surface-container-highest":"#2e3545","surface-dim":"#0c1322","secondary-fixed":"#ffe088","on-surface-variant":"#c4c6ce","background":"#0c1322","primary-fixed-dim":"#b5c8e6"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-xs":"0.25rem","space-sm":"0.5rem","space-xl":"2.5rem","gutter-mobile":"0.75rem","margin":"2rem","gutter":"1rem","margin-mobile":"1.25rem","space-md":"1rem","space-lg":"1.5rem"},"fontFamily":{"body-sm":["Inter"],"body-lg":["Inter"],"headline-md":["Playfair Display"],"display-hero-mobile":["Playfair Display"],"label-executive":["Inter"],"body-md":["Inter"],"display-hero":["Playfair Display"],"label-badge":["Inter"],"title-metric":["Inter"],"headline-sm":["Playfair Display"],"headline-lg":["Playfair Display"]},"fontSize":{"body-sm":["12px",{"lineHeight":"16px","fontWeight":"400"}],"body-lg":["16px",{"lineHeight":"24px","fontWeight":"400"}],"headline-md":["22px",{"lineHeight":"28px","fontWeight":"500"}],"display-hero-mobile":["32px",{"lineHeight":"38px","letterSpacing":"-0.01em","fontWeight":"600"}],"label-executive":["11px",{"lineHeight":"14px","letterSpacing":"0.12em","fontWeight":"600"}],"body-md":["14px",{"lineHeight":"20px","fontWeight":"400"}],"display-hero":["40px",{"lineHeight":"48px","letterSpacing":"-0.02em","fontWeight":"600"}],"label-badge":["10px",{"lineHeight":"12px","letterSpacing":"0.08em","fontWeight":"700"}],"title-metric":["24px",{"lineHeight":"28px","letterSpacing":"-0.02em","fontWeight":"700"}],"headline-sm":["18px",{"lineHeight":"24px","fontWeight":"500"}],"headline-lg":["28px",{"lineHeight":"36px","letterSpacing":"-0.01em","fontWeight":"600"}]}}}};</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 w-full z-50 pt-safe bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.18)]"><div class="h-16 px-margin-mobile flex items-center justify-between gap-space-sm"><div class="flex items-center gap-space-sm"><button aria-label="Abrir Menu" class="w-11 h-11 flex items-center justify-center text-on-surface hover:text-secondary transition-colors"><span class="material-symbols-outlined text-[24px]">menu</span></button><div class="flex items-center gap-space-xs"><img alt="Logo HAUMA Soluções Empresariais" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/ALJJyrDmnY66t5jxHgbLXG2JwtGHWTPrTxOf1nAbWLgSY8hZUEh69Fq7MCO_JtvooRpqnpA_eLHbsj1dhvio3PsJB0hs7mF9bjcXIadUoWPH2hpZJcReveiuNtFgfVyR58m-acno5NAZelW3Q6_Ksh2ntBgz4nXB5-R-EjMaPQfxWLp-1ADpqJ-uNmYLq1IvBDQ5xbKSiXjflfmoFxZskSCzny4omkvGh2_A7WezTohHC04T"/><span class="hidden font-headline-sm text-headline-sm font-semibold tracking-wide text-on-surface">HAUMA</span></div></div><div class="flex items-center gap-space-xs"><a class="inline-flex items-center justify-center h-11 px-space-md rounded-lg bg-secondary text-on-secondary font-label-executive text-label-executive tracking-wider uppercase transition-all duration-200 hover:brightness-110 active:scale-95" data-path="agendamento" href="#"><span class="hidden xs:inline">Agendar conversa</span><span class="xs:hidden inline flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">calendar_today</span><span>Agendar</span></span></a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="flex flex-col relative w-full pt-16 bg-surface"><div class="flex flex-col w-full text-on-surface">
+<!-- ==================== 1. HERO SECTION ==================== -->
+<section class="relative px-margin-mobile pt-space-md pb-space-xl flex flex-col gap-space-md overflow-hidden">
+<!-- Atmospheric Ambient Glow -->
+<div class="absolute -top-24 left-1/2 -translate-x-1/2 w-80 h-80 rounded-full bg-secondary/10 blur-[90px] pointer-events-none"></div>
+<div class="absolute top-1/2 -right-20 w-64 h-64 rounded-full bg-primary/10 blur-[80px] pointer-events-none"></div>
+<!-- Badge Tag -->
+<div class="flex items-center gap-2 self-start bg-primary-container px-3 py-1.5 rounded-full shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary animate-pulse"></span>
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-secondary font-semibold">
+        Consultoria em Finanças Corporativas & FP&A
+      </span>
+</div>
+<!-- Main Headline -->
+<h1 class="font-display-hero-mobile text-display-hero-mobile text-on-surface tracking-tight">
+      Pare de andar no escuro na gestão financeira da sua empresa.
+    </h1>
+<!-- Slogan / Subtitle -->
+<blockquote class="bg-surface-container-low p-space-md rounded-lg shadow-sm">
+<p class="font-headline-sm text-headline-sm italic text-secondary leading-snug">
+        “Modelagem financeira é uma linguagem. Pouca gente fala, todo mundo precisa.”
+      </p>
+</blockquote>
+<!-- Supporting Copy -->
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+      Estruturamos modelos financeiros integrados (DRE, Fluxo de Caixa e Balanço) para empresas de médio porte a partir de <strong class="text-on-surface font-semibold">R$ 10M de faturamento</strong>. Transformamos incerteza societária e números soltos em previsibilidade e decisões seguras.
+    </p>
+<!-- CTAs -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<a class="inline-flex items-center justify-center h-13 px-space-lg rounded-lg bg-secondary text-on-secondary font-label-executive text-label-executive uppercase tracking-wider shadow-lg transition-transform active:scale-[0.98]" href="#diagnostico-form">
+<span class="material-symbols-outlined text-[18px] mr-2">analytics</span>
+        Agendar Diagnóstico Inicial
+      </a>
+<a class="inline-flex items-center justify-center h-12 px-space-md rounded-lg bg-surface-container-high text-on-surface font-label-executive text-label-executive uppercase tracking-wider shadow-sm transition-colors hover:bg-surface-bright active:scale-[0.98]" href="#servicos">
+        Ver Nossos 6 Serviços
+        <span class="material-symbols-outlined text-[18px] ml-1">arrow_downward</span>
+</a>
+</div>
+<!-- Trust Badges & Metrics Bar -->
+<div class="grid grid-cols-1 gap-2 pt-space-sm">
+<div class="flex items-center gap-space-xs bg-surface-container p-space-sm rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]">verified_user</span>
+<span class="font-body-sm text-body-sm text-on-surface">Atendimento Nacional (Eixo SP & Capitais)</span>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container p-space-sm rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]">corporate_fare</span>
+<span class="font-body-sm text-body-sm text-on-surface">Empresas R$ 10M+ de Faturamento Anual</span>
+</div>
+<div class="flex items-center gap-space-xs bg-surface-container p-space-sm rounded-lg shadow-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]">account_balance</span>
+<span class="font-body-sm text-body-sm text-on-surface">DRE + Fluxo de Caixa + Balanço 100% Conciliados</span>
+</div>
+</div>
+</section>
+<!-- ==================== 2. SEÇÃO: O PROBLEMA ==================== -->
+<section class="px-margin-mobile py-space-xl bg-surface-container-low flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-error">Sintomas Críticos</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+        Por que empresas sólidas perdem o controle?
+      </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Faturar muito não é garantia de liquidez. Sem arquitetura de dados integrada, o capital vaza de forma silenciosa.
+      </p>
+</div>
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<!-- Pain 1 -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-sm flex flex-col gap-1.5">
+<div class="flex items-center gap-space-xs">
+<span class="w-6 h-6 rounded-full bg-error-container text-error flex items-center justify-center font-bold text-xs">1</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Rentabilidade Invisível</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Margem e lucro bruto registrados no papel contábil que simplesmente não se traduzem em disponibilidade financeira real no final do período.
+        </p>
+</div>
+<!-- Pain 2 -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-sm flex flex-col gap-1.5">
+<div class="flex items-center gap-space-xs">
+<span class="w-6 h-6 rounded-full bg-error-container text-error flex items-center justify-center font-bold text-xs">2</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Caixa como um Mistério</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Surpresas recorrentes no dia 30 sem que a diretoria saiba exatamente em qual ralo operacional, tributário ou de estoque o recurso escorreu.
+        </p>
+</div>
+<!-- Pain 3 -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-sm flex flex-col gap-1.5">
+<div class="flex items-center gap-space-xs">
+<span class="w-6 h-6 rounded-full bg-error-container text-error flex items-center justify-center font-bold text-xs">3</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">EBITDA Mal Usado & Distorcido</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Decisões estratégicas de expansão baseadas em indicadores estáticos, completamente descolados da queima de capital de giro e do ciclo de recebíveis.
+        </p>
+</div>
+<!-- Pain 4 -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-sm flex flex-col gap-1.5">
+<div class="flex items-center gap-space-xs">
+<span class="w-6 h-6 rounded-full bg-error-container text-error flex items-center justify-center font-bold text-xs">4</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Tensão Societária</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Sócios operadores e investidores com percepções conflitantes sobre a distribuição de lucros, pela total ausência de uma <em class="text-on-surface">"versão única da verdade"</em>.
+        </p>
+</div>
+</div>
+</section>
+<!-- ==================== 3. SEÇÃO: NOSSOS SERVIÇOS ==================== -->
+<section class="px-margin-mobile py-space-xl flex flex-col gap-space-md" id="servicos">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-secondary">Soluções Especializadas</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+        Finanças corporativas sob medida para a sua escala
+      </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Do diagnóstico emergencial à governança contínua de tesouraria de padrão private equity.
+      </p>
+</div>
+<!-- 6 Cards Executivos -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<!-- Card 1 -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-md flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="w-9 h-9 rounded-lg bg-primary-container text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">monitoring</span>
+</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded">01</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface pt-1">FP&A & Controladoria Estratégica</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Orçamento base zero e matricial, projeções financeiras dinâmicas (rolling forecast) e acompanhamento mensal disciplinado de metas versus realizado.
+        </p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-md flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="w-9 h-9 rounded-lg bg-primary-container text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">schema</span>
+</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded">02</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface pt-1">Modelagem Financeira Integrada</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Construção viva em 3 demonstrativos simultâneos com simuladores de cenários: otimista, conservador e teste de estresse cambial ou de demanda.
+        </p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-md flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="w-9 h-9 rounded-lg bg-primary-container text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">balance</span>
+</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded">03</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface pt-1">Valuation & Avaliação de Ativos</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Metodologia de Fluxo de Caixa Descontado (DCF), múltiplos comparáveis e avaliação econômico-financeira para entrada ou saída de sócios e captação.
+        </p>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-md flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="w-9 h-9 rounded-lg bg-primary-container text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">groups</span>
+</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded">04</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface pt-1">Governança & Relação com Sócios</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Board decks estruturados, definição de ritos de comitê de finanças, alinhamento técnico para dividendos e redução da assimetria de informações societárias.
+        </p>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-md flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="w-9 h-9 rounded-lg bg-primary-container text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">merge_type</span>
+</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded">05</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface pt-1">Apoio a M&A e Due Diligence</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Assessoria técnica sell-side ou buy-side: saneamento e consolidação de data room financeiro, modelagem da transação e defesa de valor nas rodadas.
+        </p>
+</div>
+<!-- Card 6 -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-md flex flex-col gap-2">
+<div class="flex items-center justify-between">
+<span class="w-9 h-9 rounded-lg bg-primary-container text-secondary flex items-center justify-center">
+<span class="material-symbols-outlined text-[20px]">currency_exchange</span>
+</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant bg-surface-container-high px-2 py-0.5 rounded">06</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface pt-1">Reestruturação e Gestão de Caixa</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+          Otimização cirúrgica do ciclo de caixa (PMR, PMP, PME), renegociação de perfil de endividamento e eliminação imediata de vazamentos de liquidez.
+        </p>
+</div>
+</div>
+</section>
+<!-- ==================== 4. SEÇÃO: DIFERENCIAL - MODELAGEM INTEGRADA ==================== -->
+<section class="px-margin-mobile py-space-xl bg-surface-container-low flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-secondary">Arquitetura de Precisão</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+        A Tríade que Elimina o "Achismo"
+      </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        A maioria analisa apenas o DRE. A HAUMA conecta os três pilares em um ecossistema matricial vivo.
+      </p>
+</div>
+<!-- Interactive / High-density Diagram Representation -->
+<div class="flex flex-col gap-space-xs">
+<!-- DRE Pillar -->
+<div class="bg-surface-container p-space-md rounded-xl flex items-start gap-space-sm shadow-sm">
+<div class="w-8 h-8 rounded-lg bg-secondary/15 text-secondary flex items-center justify-center shrink-0 mt-0.5">
+<span class="font-bold text-xs">01</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">DRE Dinâmica</span>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-secondary">Resultado Econômico</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">
+            Revela o lucro líquido operacional real por unidade de negócio, despesas alocadas e margem de contribuição autêntica.
+          </p>
+</div>
+</div>
+<!-- Connector Indicator -->
+<div class="flex justify-center -my-1 text-secondary/50">
+<span class="material-symbols-outlined text-[16px]">sync_alt</span>
+</div>
+<!-- Fluxo de Caixa Pillar -->
+<div class="bg-surface-container p-space-md rounded-xl flex items-start gap-space-sm shadow-sm">
+<div class="w-8 h-8 rounded-lg bg-secondary/15 text-secondary flex items-center justify-center shrink-0 mt-0.5">
+<span class="font-bold text-xs">02</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">Fluxo de Caixa 100% Conciliado</span>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-secondary">Liquidez & Solvência</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">
+            Métodos direto e indireto integrados. Aponta capacidade de amortização, investimentos (Capex) e distribuição segura de dividendos.
+          </p>
+</div>
+</div>
+<!-- Connector Indicator -->
+<div class="flex justify-center -my-1 text-secondary/50">
+<span class="material-symbols-outlined text-[16px]">sync_alt</span>
+</div>
+<!-- Balanço Patrimonial Pillar -->
+<div class="bg-surface-container p-space-md rounded-xl flex items-start gap-space-sm shadow-sm">
+<div class="w-8 h-8 rounded-lg bg-secondary/15 text-secondary flex items-center justify-center shrink-0 mt-0.5">
+<span class="font-bold text-xs">03</span>
+</div>
+<div class="flex flex-col">
+<div class="flex items-center justify-between">
+<span class="font-headline-sm text-headline-sm text-on-surface">Balanço Patrimonial Prospectivo</span>
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-secondary">Estrutura de Capital</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">
+            Controle analítico de necessidade de capital de giro (NCG), prazos médios e alavancagem financeira total em tempo real.
+          </p>
+</div>
+</div>
+</div>
+<!-- Callout Box -->
+<div class="bg-primary-container p-space-md rounded-xl shadow-md flex items-start gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[24px] shrink-0 mt-0.5">lightbulb</span>
+<p class="font-body-sm text-body-sm text-on-surface leading-snug">
+<strong class="text-secondary font-semibold">Não entregamos planilhas estáticas:</strong> Desenvolvemos o motor de decisão do seu negócio, permitindo simular o impacto de contratações, novas dívidas ou oscilações de receita antes que ocorram.
+      </p>
+</div>
+</section>
+<!-- ==================== 5. SEÇÃO: METODOLOGIA DIAGNÓSTICO ==================== -->
+<section class="px-margin-mobile py-space-xl flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-secondary">Processo Estruturado</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+        Diagnóstico Preliminar em 4 Fases
+      </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        "Onde foi parar o caixa?" Resposta forense e analítica sem achismos ou conjecturas.
+      </p>
+</div>
+<!-- Timeline Stepper -->
+<div class="flex flex-col gap-space-sm relative">
+<!-- Step A -->
+<div class="flex items-start gap-space-sm bg-surface-container p-space-md rounded-xl shadow-sm">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary font-bold text-xs flex items-center justify-center shrink-0">
+          A
+        </div>
+<div class="flex flex-col">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-secondary">Fase Inicial</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Imersão & Reconciliação dos Dados</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">
+            Auditoria analítica retroativa dos últimos 24 meses. Padronização de plano de contas e conciliação bancária integral.
+          </p>
+</div>
+</div>
+<!-- Step B -->
+<div class="flex items-start gap-space-sm bg-surface-container p-space-md rounded-xl shadow-sm">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary font-bold text-xs flex items-center justify-center shrink-0">
+          B
+        </div>
+<div class="flex flex-col">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-secondary">Fase Investigativa</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Mapeamento de Furos no Capital de Giro</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">
+            Diagnóstico profundo do ciclo operacional (PMR, PMP e Giro de Estoques), inadimplência oculta e ineficiências tributárias imediatas.
+          </p>
+</div>
+</div>
+<!-- Step C -->
+<div class="flex items-start gap-space-sm bg-surface-container p-space-md rounded-xl shadow-sm">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary font-bold text-xs flex items-center justify-center shrink-0">
+          C
+        </div>
+<div class="flex flex-col">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-secondary">Fase Arquitetura</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Reconstrução dos 3 Demonstrativos</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">
+            Unificação do modelo em DRE, Fluxo de Caixa e Balanço conectados, acompanhados da primeira rodada de projeções e testes de sensibilidade.
+          </p>
+</div>
+</div>
+<!-- Step D -->
+<div class="flex items-start gap-space-sm bg-surface-container p-space-md rounded-xl shadow-sm">
+<div class="w-8 h-8 rounded-full bg-secondary text-on-secondary font-bold text-xs flex items-center justify-center shrink-0">
+          D
+        </div>
+<div class="flex flex-col">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-secondary">Fase Decisória</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Plano de Ação & Apresentação Societária</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant pt-1">
+            Entrega do relatório executivo com recomendações prioritárias, metas de contenção e apresentação direta em comitê aos sócios.
+          </p>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== 6. SEÇÃO: PARA QUEM É A HAUMA ==================== -->
+<section class="px-margin-mobile py-space-xl bg-surface-container-low flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-secondary">Público Executivo</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+        Para quem a HAUMA é indispensável
+      </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Desenvolvido para perfis de alta exigência que necessitam de autoridade financeira inquestionável.
+      </p>
+</div>
+<!-- 4 Target Segments -->
+<div class="flex flex-col gap-space-sm">
+<!-- Persona 1 -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-sm flex flex-col gap-1.5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">factory</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Empresários & Acionistas</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Líderes de operações que faturam acima de <strong class="text-on-surface font-semibold">R$ 10M/ano</strong> e necessitam de previsibilidade sólida de caixa antes de reinvestir ou expandir.
+        </p>
+</div>
+<!-- Persona 2 -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-sm flex flex-col gap-1.5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">handshake</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Sócios Operadores e Não Operadores</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Para pacificar desconfianças e discussões com métricas inquestionáveis, definindo regras cristalinas para reinvestimento e distribuição de dividendos.
+        </p>
+</div>
+<!-- Persona 3 -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-sm flex flex-col gap-1.5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">domain</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Investidores & Family Offices</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Monitoramento profissional e auditoria contínua de empresas investidas, com relatórios mensais de governança sem necessidade de microgestão operacional.
+        </p>
+</div>
+<!-- Persona 4 -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-sm flex flex-col gap-1.5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">trending_up</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Empresas em Preparação de M&A</h3>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Organização prévia e sanitização de balanços para maximizar múltiplos de valuation e mitigar riscos de passivos durante rodadas de due diligence.
+        </p>
+</div>
+</div>
+</section>
+<!-- ==================== 7. SEÇÃO: COMPARATIVO CONTROLADORIA ==================== -->
+<section class="px-margin-mobile py-space-xl flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-secondary">Diferenciação Analítica</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+        Controladoria que interpreta, não só fecha números
+      </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        A diferença vital entre cumprir obrigações fiscais e orientar o destino estratégico do patrimônio.
+      </p>
+</div>
+<!-- Comparative Display -->
+<div class="flex flex-col gap-space-sm pt-space-xs">
+<!-- Traditional Accounting Box -->
+<div class="bg-surface-container-low p-space-md rounded-xl flex flex-col gap-space-xs opacity-85">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-outline text-[20px]">history_edu</span>
+<span class="font-label-executive text-label-executive uppercase tracking-wider text-outline">Contabilidade Tradicional</span>
+</div>
+<ul class="flex flex-col gap-1.5 pt-1">
+<li class="flex items-start gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-error shrink-0 mt-0.5">close</span>
+<span>Focada exclusivamente em apuração de impostos e fisco</span>
+</li>
+<li class="flex items-start gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-error shrink-0 mt-0.5">close</span>
+<span>Visão retrospectiva (o que já aconteceu há 30 ou 60 dias)</span>
+</li>
+<li class="flex items-start gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-error shrink-0 mt-0.5">close</span>
+<span>Entrega relatórios estáticos em PDF sem flexibilidade de teste</span>
+</li>
+<li class="flex items-start gap-2 font-body-sm text-body-sm text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-error shrink-0 mt-0.5">close</span>
+<span>Números sem contexto de liquidez ou capacidade de reinvestimento</span>
+</li>
+</ul>
+</div>
+<!-- HAUMA FP&A Box -->
+<div class="bg-surface-container p-space-md rounded-xl flex flex-col gap-space-xs shadow-md">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">bolt</span>
+<span class="font-label-executive text-label-executive uppercase tracking-wider text-secondary font-semibold">HAUMA FP&A Estratégico</span>
+</div>
+<ul class="flex flex-col gap-1.5 pt-1">
+<li class="flex items-start gap-2 font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-secondary shrink-0 mt-0.5">check</span>
+<span>Focado em maximizar a geração de caixa livre e valuation</span>
+</li>
+<li class="flex items-start gap-2 font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-secondary shrink-0 mt-0.5">check</span>
+<span>Visão prospectiva (rolling forecast dinâmico de 12 a 36 meses)</span>
+</li>
+<li class="flex items-start gap-2 font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-secondary shrink-0 mt-0.5">check</span>
+<span>Simulador de cenários em tempo real para apoiar decisões do CEO</span>
+</li>
+<li class="flex items-start gap-2 font-body-sm text-body-sm text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-secondary shrink-0 mt-0.5">check</span>
+<span>Diagnóstico das causas que afetam o capital de giro e governança</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- ==================== 8. SEÇÃO: CREDENCIAIS E SOBRE ==================== -->
+<section class="px-margin-mobile py-space-xl bg-surface-container-low flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-secondary">Rigor & Experiência</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+        Autoridade Técnica com Experiência em Negociações Complexas
+      </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        A HAUMA alia a disciplina de grandes bancos de investimento à agilidade exigida pela média empresa brasileira.
+      </p>
+</div>
+<!-- Credentials Card -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-md flex flex-col gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[32px]">shield</span>
+<div>
+<span class="font-headline-sm text-headline-sm text-on-surface block">Compromisso com Sigilo Absoluto</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Non-Disclosure Agreement (NDA) firmado antes de qualquer envio de dados.</span>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-space-xs pt-space-xs">
+<div class="bg-surface-container-high p-space-sm rounded-lg flex flex-col">
+<span class="font-title-metric text-title-metric text-secondary font-bold">R$ 10M+</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant uppercase">Escopo de Atuação</span>
+</div>
+<div class="bg-surface-container-high p-space-sm rounded-lg flex flex-col">
+<span class="font-title-metric text-title-metric text-secondary font-bold">100%</span>
+<span class="font-label-badge text-label-badge text-on-surface-variant uppercase">Modelagem Proprietária</span>
+</div>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant leading-relaxed">
+        Track record sólido em reestruturações societárias, modelagens multissetoriais (indústria, serviços, agronegócio e varejo) e suporte direto a conselhos de administração em disputas de capital.
+      </p>
+</div>
+</section>
+<!-- ==================== 9. SEÇÃO: COMO TRABALHAMOS ==================== -->
+<section class="px-margin-mobile py-space-xl flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-secondary">Roteiro Operacional</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+        Como Trabalhamos
+      </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Passo a passo transparente para garantir segurança e precisão do primeiro contato ao reporte executivo.
+      </p>
+</div>
+<!-- Stepper 1-5 -->
+<div class="flex flex-col gap-2">
+<!-- Step 1 -->
+<div class="flex items-center gap-space-sm bg-surface-container p-space-sm rounded-lg shadow-sm">
+<span class="w-7 h-7 rounded-full bg-surface-container-high text-secondary flex items-center justify-center font-bold text-xs shrink-0">1</span>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Reunião de Alinhamento e NDA</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Formalização de sigilo e definição dos objetivos estratégicos.</span>
+</div>
+</div>
+<!-- Step 2 -->
+<div class="flex items-center gap-space-sm bg-surface-container p-space-sm rounded-lg shadow-sm">
+<span class="w-7 h-7 rounded-full bg-surface-container-high text-secondary flex items-center justify-center font-bold text-xs shrink-0">2</span>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Coleta de Dados e Diagnóstico</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Auditoria analítica dos balancetes, extratos e contratos.</span>
+</div>
+</div>
+<!-- Step 3 -->
+<div class="flex items-center gap-space-sm bg-surface-container p-space-sm rounded-lg shadow-sm">
+<span class="w-7 h-7 rounded-full bg-surface-container-high text-secondary flex items-center justify-center font-bold text-xs shrink-0">3</span>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Construção da Modelagem Integrada</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Estruturação dos 3 demonstrativos e matriz de cenários.</span>
+</div>
+</div>
+<!-- Step 4 -->
+<div class="flex items-center gap-space-sm bg-surface-container p-space-sm rounded-lg shadow-sm">
+<span class="w-7 h-7 rounded-full bg-surface-container-high text-secondary flex items-center justify-center font-bold text-xs shrink-0">4</span>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Apresentação para Decisores</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Sessão executiva com sócios para alinhamento das decisões.</span>
+</div>
+</div>
+<!-- Step 5 -->
+<div class="flex items-center gap-space-sm bg-surface-container p-space-sm rounded-lg shadow-sm">
+<span class="w-7 h-7 rounded-full bg-surface-container-high text-secondary flex items-center justify-center font-bold text-xs shrink-0">5</span>
+<div class="flex flex-col">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Acompanhamento Mensal de Performance</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Governança continuada com reuniões mensais de FP&A.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- ==================== 10. SEÇÃO: MODELOS DE CONTRATAÇÃO ==================== -->
+<section class="px-margin-mobile py-space-xl bg-surface-container-low flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-secondary">Formatos de Atuação</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+        Modelos de Contratação Flexíveis
+      </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Adequados à maturidade da sua operação e momento societário.
+      </p>
+</div>
+<!-- Models Grid -->
+<div class="flex flex-col gap-space-sm">
+<!-- Modelo 1 -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-md flex flex-col gap-space-xs">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-secondary">Projeto Sob Medida</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Projeto Pontual de Modelagem & Valuation</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Diagnóstico aprofundado, saneamento da base financeira e entrega final da ferramenta de projeção proprietária estruturada para a empresa.
+        </p>
+<span class="font-label-badge text-label-badge text-on-surface-variant pt-1">Ideal para: Reorganização societária ou rodada específica.</span>
+</div>
+<!-- Modelo 2 -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-md flex flex-col gap-space-xs">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-secondary">Recorrente Executivo</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">FP&A as a Service (Contínuo)</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Terceirização estratégica da controladoria, orçamento anual, fechamento gerencial mensal e condução de comitês executivos com os sócios.
+        </p>
+<span class="font-label-badge text-label-badge text-on-surface-variant pt-1">Ideal para: Empresas em expansão acelerada sem CFO pleno.</span>
+</div>
+<!-- Modelo 3 -->
+<div class="bg-surface-container p-space-md rounded-xl shadow-md flex flex-col gap-space-xs">
+<span class="font-label-badge text-label-badge uppercase tracking-wider text-secondary">Consultoria Estratégica</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Advisory Especial para M&A ou Sócios</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+          Apoio técnico dedicado em transações de compra e venda de fatias, dissidência societária e negociações de alto impacto financeiro.
+        </p>
+<span class="font-label-badge text-label-badge text-on-surface-variant pt-1">Ideal para: Transações complexas e transições familiares.</span>
+</div>
+</div>
+<a class="inline-flex items-center justify-center h-12 px-space-md rounded-lg bg-surface-container-high text-secondary font-label-executive text-label-executive uppercase tracking-wider shadow-sm mt-space-xs transition-colors hover:bg-surface-bright" href="#diagnostico-form">
+      Solicite uma proposta detalhada de escopo
+      <span class="material-symbols-outlined text-[18px] ml-1">arrow_forward</span>
+</a>
+</section>
+<!-- ==================== 11. SEÇÃO: PERGUNTAS FREQUENTES ==================== -->
+<section class="px-margin-mobile py-space-xl flex flex-col gap-space-md">
+<div class="flex flex-col gap-space-xs">
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-secondary">Esclarecimentos Rápidos</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+        Perguntas Frequentes
+      </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+        Principais dúvidas de acionistas e diretores financeiros antes de iniciar o processo.
+      </p>
+</div>
+<!-- FAQ List with vanilla JS toggle -->
+<div class="flex flex-col gap-2" id="faq-container">
+<!-- FAQ 1 -->
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-sm">
+<button class="w-full p-space-md text-left flex items-center justify-between gap-space-sm faq-btn" type="button">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Minha empresa já tem contador. Por que preciso de FP&A e modelagem?</span>
+<span class="material-symbols-outlined text-secondary text-[20px] transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content px-space-md pb-space-md pt-0 text-on-surface-variant font-body-sm text-body-sm hidden leading-relaxed">
+          O contador cumpre uma função fiscal indispensável, registrando fatos passados para pagamento correto de tributos. O FP&A olha para a frente: constrói cenários futuros, antecipa furos de liquidez, mede a rentabilidade real de cada linha e fornece suporte para o conselho tomar decisões estratégicas de expansão.
+        </div>
+</div>
+<!-- FAQ 2 -->
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-sm">
+<button class="w-full p-space-md text-left flex items-center justify-between gap-space-sm faq-btn" type="button">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Qual é o faturamento mínimo para o trabalho fazer sentido econômico?</span>
+<span class="material-symbols-outlined text-secondary text-[20px] transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content px-space-md pb-space-md pt-0 text-on-surface-variant font-body-sm text-body-sm hidden leading-relaxed">
+          Nossa metodologia é calibrada para empresas com receita bruta anual a partir de R$ 10 Milhões. Nessa faixa de faturamento, a complexidade de capital de giro, multiplicidade de centros de custo e potenciais atritos societários justificam plenamente o ROI de uma controladoria profissional de padrão private equity.
+        </div>
+</div>
+<!-- FAQ 3 -->
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-sm">
+<button class="w-full p-space-md text-left flex items-center justify-between gap-space-sm faq-btn" type="button">
+<span class="font-body-md text-body-md font-semibold text-on-surface">O atendimento funciona bem remotamente?</span>
+<span class="material-symbols-outlined text-secondary text-[20px] transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content px-space-md pb-space-md pt-0 text-on-surface-variant font-body-sm text-body-sm hidden leading-relaxed">
+          Sim. Atendemos clientes em todo o território nacional combinando reuniões executivas virtuais via conferência criptografada e, quando necessário, visitas técnicas presenciais em capitais estratégicas (com foco prioritário no eixo São Paulo).
+        </div>
+</div>
+<!-- FAQ 4 -->
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-sm">
+<button class="w-full p-space-md text-left flex items-center justify-between gap-space-sm faq-btn" type="button">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Como é garantido o sigilo das informações financeiras?</span>
+<span class="material-symbols-outlined text-secondary text-[20px] transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content px-space-md pb-space-md pt-0 text-on-surface-variant font-body-sm text-body-sm hidden leading-relaxed">
+          Antes de qualquer dado ser transmitido, firmamos um Acordo de Confidencialidade e Não Divulgação (NDA) com validade jurídica estrita. Utilizamos armazenamento seguro em nuvem corporativa sob protocolo de criptografia bancária.
+        </div>
+</div>
+<!-- FAQ 5 -->
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-sm">
+<button class="w-full p-space-md text-left flex items-center justify-between gap-space-sm faq-btn" type="button">
+<span class="font-body-md text-body-md font-semibold text-on-surface">Quanto tempo dura a implementação inicial?</span>
+<span class="material-symbols-outlined text-secondary text-[20px] transition-transform duration-200">expand_more</span>
+</button>
+<div class="faq-content px-space-md pb-space-md pt-0 text-on-surface-variant font-body-sm text-body-sm hidden leading-relaxed">
+          O diagnóstico preliminar e a reconciliação dos últimos 24 meses costumam ser concluídos entre 3 a 5 semanas, dependendo da disponibilidade dos extratos e balancetes da empresa. O primeiro comitê com a diretoria acontece logo após essa fase.
+        </div>
+</div>
+</div>
+</section>
+<!-- ==================== 12. SEÇÃO: CTA FINAL & FORMULÁRIO ==================== -->
+<section class="px-margin-mobile py-space-xl bg-surface-container-low flex flex-col gap-space-md" id="diagnostico-form">
+<div class="flex flex-col gap-space-xs text-center">
+<span class="font-label-badge text-label-badge uppercase tracking-widest text-secondary">Inicie a Transformação</span>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">
+        Descubra com precisão onde está o caixa da sua empresa
+      </h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant max-w-md mx-auto">
+        Agende uma conversa inicial confidencial sem compromisso com nossos especialistas seniores em finanças corporativas.
+      </p>
+</div>
+<!-- Executive Form -->
+<form class="bg-surface-container p-space-md rounded-2xl shadow-xl flex flex-col gap-space-sm" id="landing-contact-form" onsubmit="event.preventDefault(); document.getElementById('form-success-banner').classList.remove('hidden');">
+<!-- Input Nome -->
+<div class="flex flex-col gap-1">
+<label class="font-label-executive text-label-executive uppercase tracking-wider text-on-surface" for="form-name">Nome do Decisor</label>
+<input class="w-full h-11 px-space-sm bg-surface-container-high text-on-surface placeholder:text-outline text-body-md rounded-lg focus:outline-none focus:bg-surface-bright" id="form-name" placeholder="Ex.: Roberto Alcantara" required="" type="text"/>
+</div>
+<!-- Input Cargo -->
+<div class="flex flex-col gap-1">
+<label class="font-label-executive text-label-executive uppercase tracking-wider text-on-surface" for="form-role">Cargo / Função Societária</label>
+<select class="w-full h-11 px-space-sm bg-surface-container-high text-on-surface text-body-md rounded-lg focus:outline-none focus:bg-surface-bright" id="form-role" required="">
+<option disabled="" selected="" value="">Selecione seu cargo</option>
+<option value="socio">Sócio / Acionista</option>
+<option value="ceo">CEO / Diretor Executivo</option>
+<option value="cfo">CFO / Diretor Financeiro</option>
+<option value="conselheiro">Membro de Conselho</option>
+<option value="investidor">Investidor / Family Office</option>
+</select>
+</div>
+<!-- Input Empresa & Faturamento -->
+<div class="flex flex-col gap-1">
+<label class="font-label-executive text-label-executive uppercase tracking-wider text-on-surface" for="form-company">Nome da Empresa</label>
+<input class="w-full h-11 px-space-sm bg-surface-container-high text-on-surface placeholder:text-outline text-body-md rounded-lg focus:outline-none focus:bg-surface-bright" id="form-company" placeholder="Ex.: Grupo Delta Participações" required="" type="text"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-executive text-label-executive uppercase tracking-wider text-on-surface" for="form-revenue">Faturamento Anual Aproximado</label>
+<select class="w-full h-11 px-space-sm bg-surface-container-high text-on-surface text-body-md rounded-lg focus:outline-none focus:bg-surface-bright" id="form-revenue" required="">
+<option disabled="" selected="" value="">Selecione o faturamento</option>
+<option value="sub10">Abaixo de R$ 10M/ano</option>
+<option value="10-30">De R$ 10M a R$ 30M/ano</option>
+<option value="30-100">De R$ 30M a R$ 100M/ano</option>
+<option value="above100">Acima de R$ 100M/ano</option>
+</select>
+</div>
+<!-- Desafio Principal -->
+<div class="flex flex-col gap-1">
+<label class="font-label-executive text-label-executive uppercase tracking-wider text-on-surface" for="form-challenge">Principal Desafio Atual</label>
+<select class="w-full h-11 px-space-sm bg-surface-container-high text-on-surface text-body-md rounded-lg focus:outline-none focus:bg-surface-bright" id="form-challenge" required="">
+<option disabled="" selected="" value="">Onde está a maior urgência?</option>
+<option value="caixa">Incerteza no Fluxo de Caixa / Capital de Giro</option>
+<option value="governanca">Governança & Alinhamento entre Sócios</option>
+<option value="mna">Preparação para M&A ou Valuation</option>
+<option value="previsibilidade">Falta de Modelagem e Previsibilidade (FP&A)</option>
+</select>
+</div>
+<!-- Contato: Email & WhatsApp -->
+<div class="flex flex-col gap-1">
+<label class="font-label-executive text-label-executive uppercase tracking-wider text-on-surface" for="form-email">E-mail Corporativo</label>
+<input class="w-full h-11 px-space-sm bg-surface-container-high text-on-surface placeholder:text-outline text-body-md rounded-lg focus:outline-none focus:bg-surface-bright" id="form-email" placeholder="decisor@empresa.com.br" required="" type="email"/>
+</div>
+<div class="flex flex-col gap-1">
+<label class="font-label-executive text-label-executive uppercase tracking-wider text-on-surface" for="form-whatsapp">WhatsApp Corporativo</label>
+<input class="w-full h-11 px-space-sm bg-surface-container-high text-on-surface placeholder:text-outline text-body-md rounded-lg focus:outline-none focus:bg-surface-bright" id="form-whatsapp" placeholder="(11) 99999-9999" required="" type="tel"/>
+</div>
+<!-- Submit Button -->
+<button class="w-full h-13 mt-2 rounded-lg bg-secondary text-on-secondary font-label-executive text-label-executive uppercase tracking-wider shadow-lg flex items-center justify-center gap-2 active:scale-[0.98] transition-transform" type="submit">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+        Solicitar Diagnóstico e Proposta Confidencial
+      </button>
+<!-- Feedback Success Message (simulated) -->
+<div class="hidden bg-tertiary-container text-tertiary-fixed p-space-sm rounded-lg text-center font-body-sm text-body-sm flex items-center justify-center gap-2" id="form-success-banner">
+<span class="material-symbols-outlined text-[18px]">check_circle</span>
+<span>Solicitação recebida em sigilo. Entraremos em contato em até 4 horas úteis.</span>
+</div>
+<div class="flex items-center justify-center gap-1.5 pt-1 text-on-surface-variant font-label-badge text-label-badge">
+<span class="material-symbols-outlined text-[14px] text-secondary">lock</span>
+<span>Acordo de Confidencialidade (NDA) Garantido.</span>
+</div>
+</form>
+<!-- Immediate WhatsApp CTA -->
+<div class="bg-surface-container p-space-md rounded-xl text-center flex flex-col items-center gap-2 shadow-sm">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Prefere conversar imediatamente com nosso comitê técnico?</span>
+<a class="inline-flex items-center gap-2 text-secondary font-label-executive text-label-executive uppercase tracking-wider hover:underline" href="https://wa.me/5511999999999?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20diagn%C3%B3stico%20financeiro%20com%20a%20HAUMA." rel="noopener noreferrer" target="_blank">
+<span class="material-symbols-outlined text-[18px]">chat</span>
+        Fale no WhatsApp Corporativo
+      </a>
+</div>
+</section>
+<!-- ==================== 13. SÍNTESE INSTITUCIONAL DE ENCERRAMENTO ==================== -->
+<section class="px-margin-mobile py-space-md flex flex-col gap-space-sm items-center text-center">
+<span class="font-headline-sm text-headline-sm text-on-surface font-semibold tracking-wide">HAUMA Soluções Empresariais</span>
+<p class="font-body-sm text-body-sm italic text-secondary max-w-xs">
+      “Modelagem financeira é uma linguagem. Pouca gente fala, todo mundo precisa.”
+    </p>
+<div class="flex items-center justify-center gap-2 text-on-surface-variant font-label-badge text-label-badge uppercase">
+<span>Sigilo Rigoroso</span>
+<span>•</span>
+<span>Padrão Private Equity</span>
+<span>•</span>
+<span>Presença Nacional</span>
+</div>
+</section>
+</div>
+<!-- Vanilla JS for FAQ Interaction -->
+<script>
+  (function () {
+    const faqBtns = document.querySelectorAll('.faq-btn');
+    faqBtns.forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('.material-symbols-outlined');
+        const isOpen = !content.classList.contains('hidden');
+
+        // Close all others
+        document.querySelectorAll('.faq-content').forEach(c => c.classList.add('hidden'));
+        document.querySelectorAll('.faq-btn .material-symbols-outlined').forEach(i => i.style.transform = 'rotate(0deg)');
+
+        if (!isOpen) {
+          content.classList.remove('hidden');
+          if (icon) icon.style.transform = 'rotate(180deg)';
+        }
+      });
+    });
+  })();
+</script><footer class="w-full bg-surface-container-lowest mt-space-xl px-margin-mobile pt-space-xl pb-24 text-on-surface-variant"><div class="flex flex-col gap-space-md"><div class="flex items-center gap-space-xs"><img alt="Logo HAUMA Soluções Empresariais" class="h-7 w-auto object-contain opacity-90" src="https://lh3.googleusercontent.com/aida/ALJJyrDmnY66t5jxHgbLXG2JwtGHWTPrTxOf1nAbWLgSY8hZUEh69Fq7MCO_JtvooRpqnpA_eLHbsj1dhvio3PsJB0hs7mF9bjcXIadUoWPH2hpZJcReveiuNtFgfVyR58m-acno5NAZelW3Q6_Ksh2ntBgz4nXB5-R-EjMaPQfxWLp-1ADpqJ-uNmYLq1IvBDQ5xbKSiXjflfmoFxZskSCzny4omkvGh2_A7WezTohHC04T"/><span class="font-headline-sm text-headline-sm text-on-surface tracking-wider">HAUMA</span></div><p class="font-body-sm text-body-sm text-on-surface-variant max-w-sm">Consultoria estratégica em FP&A, governança corporativa e reestruturação de capital de alta autoridade.</p><div class="inline-flex items-center gap-space-xs py-space-xs text-secondary"><span class="material-symbols-outlined text-[16px]">pin_drop</span><span class="font-label-executive text-label-executive uppercase text-secondary">Atendimento nacional (eixo SP e capitais)</span></div><div class="grid grid-cols-2 gap-space-md pt-space-sm"><div class="flex flex-col gap-space-xs"><span class="font-label-badge text-label-badge uppercase tracking-widest text-on-surface">Serviços</span><a class="font-body-sm text-body-sm hover:text-secondary transition-colors" data-path="servicos-fpa" href="#">Diagnóstico & FP&A</a><a class="font-body-sm text-body-sm hover:text-secondary transition-colors" data-path="governanca" href="#">Governança Fiscal</a><a class="font-body-sm text-body-sm hover:text-secondary transition-colors" data-path="auditoria" href="#">Auditoria Financeira</a></div><div class="flex flex-col gap-space-xs"><span class="font-label-badge text-label-badge uppercase tracking-widest text-on-surface">Institucional</span><a class="font-body-sm text-body-sm hover:text-secondary transition-colors" data-path="sobre" href="#">A Hauma</a><a class="font-body-sm text-body-sm hover:text-secondary transition-colors" data-path="compliance" href="#">Compliance</a><a class="font-body-sm text-body-sm hover:text-secondary transition-colors" data-path="contato" href="#">Canais Diretos</a></div></div><div class="pt-space-md flex flex-col gap-space-xs text-center sm:text-left"><p class="font-label-badge text-label-badge text-outline">© HAUMA Soluções Empresariais. Todos os direitos reservados.</p></div></div></footer></main><nav class="fixed bottom-0 w-full z-50 pb-safe bg-surface/90 backdrop-blur-xl shadow-[0_-2px_12px_rgba(0,0,0,0.3)]" data-active-classes="text-secondary"><div class="flex justify-around items-center h-16 px-space-xs"><a aria-current="page" class="flex flex-col items-center justify-center gap-1 w-14 h-11 transition-colors text-secondary" data-path="home" href="#"><span class="material-symbols-outlined text-[20px]">corporate_fare</span><span class="font-label-badge text-label-badge">Início</span></a><a class="flex flex-col items-center justify-center gap-1 w-14 h-11 text-on-surface-variant transition-colors" data-path="servicos-fpa" href="#"><span class="material-symbols-outlined text-[20px]">query_stats</span><span class="font-label-badge text-label-badge">Serviços</span></a><a class="flex flex-col items-center justify-center gap-1 w-14 h-11 text-on-surface-variant transition-colors" data-path="diagnostico-preliminar" href="#"><span class="material-symbols-outlined text-[20px]">insights</span><span class="font-label-badge text-label-badge">Auditoria</span></a><a class="flex flex-col items-center justify-center gap-1 w-14 h-11 text-on-surface-variant transition-colors" data-path="agendamento" href="#"><span class="material-symbols-outlined text-[20px]">event_available</span><span class="font-label-badge text-label-badge">Agendar</span></a><a class="flex flex-col items-center justify-center gap-1 w-14 h-11 text-on-surface-variant transition-colors" data-path="contato" href="#"><span class="material-symbols-outlined text-[20px]">mail</span><span class="font-label-badge text-label-badge">Contato</span></a></div></nav></body></html>
