@@ -141,4 +141,4 @@
       dd.firstElementChild.addEventListener('mouseenter', function () { dd.classList.remove('dd-closed'); });
     });
   })();
-</script></body></html>
+</script><div id="toast-email" role="status" aria-live="polite" hidden class="fixed left-1/2 -translate-x-1/2 bottom-20 lg:bottom-6 z-[60] rounded-lg bg-[#13233a] text-white px-4 py-2 text-[14px] shadow-lg whitespace-nowrap"></div><script>(function(){var t,el=document.getElementById("toast-email");function show(msg){el.textContent=msg;el.hidden=false;clearTimeout(t);t=setTimeout(function(){el.hidden=true},4000);}document.querySelectorAll('a[href^="mailto:"]').forEach(function(a){a.addEventListener("click",function(){var e=a.getAttribute("href").slice(7).split("?")[0];if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(e).then(function(){show("E-mail copiado: "+e)},function(){show("E-mail: "+e)})}else{show("E-mail: "+e)}});});})();</script></body></html>
