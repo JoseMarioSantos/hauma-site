@@ -75,7 +75,7 @@ def _br(v, casas=2):
     return ('%.*f' % (casas, v)).replace('.', ',')
 
 def grafico_curva(c):
-    pts = c['pontos']; n = len(pts)
+    pts = c['pontos']; n = len(pts); est = set(c.get('estimados', []))
     W, H = 760, 360; L, R, T, B = 56, 24, 28, 44
     vals = [v for _, v in pts]
     lo = _math.floor(min(vals) * 2) / 2 - 0.5; hi = _math.ceil(max(vals) * 2) / 2
@@ -93,7 +93,10 @@ def grafico_curva(c):
     g.append('<path d="%s" fill="none" stroke="#2a78d6" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>' % path)
     imax = max(range(n), key=lambda i: pts[i][1])
     for i, (lab, v) in enumerate(pts):
-        g.append('<circle cx="%.1f" cy="%.1f" r="4.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>' % (x(i), y(v)))
+        if lab in est:
+            g.append('<circle cx="%.1f" cy="%.1f" r="4.5" fill="#ffffff" stroke="#2a78d6" stroke-width="2"/>' % (x(i), y(v)))
+        else:
+            g.append('<circle cx="%.1f" cy="%.1f" r="4.5" fill="#2a78d6" stroke="#ffffff" stroke-width="2"/>' % (x(i), y(v)))
     for i in sorted({0, imax, n - 1}):
         anchor = 'start' if i == 0 else ('end' if i == n - 1 else 'middle')
         dx = 6 if i == 0 else (-6 if i == n - 1 else 0)
@@ -107,13 +110,13 @@ def grafico_curva(c):
            '<title id="cj-tit">Curva de juros prefixada no Brasil, %s</title>'
            '<desc id="cj-desc">Taxa de %s%% a.a. em %s, máxima de %s%% a.a. em %s e %s%% a.a. em %s.</desc>%s</svg>') % (
                W, H, c['data'], _br(pts[0][1]), pts[0][0], _br(pts[imax][1]), pts[imax][0], _br(pts[-1][1]), pts[-1][0], ''.join(g))
-    linhas = ''.join('<tr class="border-t border-outline-variant"><td class="py-1 pr-4">%s</td><td class="py-1 text-right tabular-nums">%s%%</td></tr>' % (lab, _br(v, 4)) for lab, v in pts)
-    dados = ','.join('["%s",%s]' % (lab, v) for lab, v in pts)
+    linhas = ''.join('<tr class="border-t border-outline-variant"><td class="py-1 pr-4">%s%s</td><td class="py-1 text-right tabular-nums">%s%%</td></tr>' % (lab, ' (estimado)' if lab in est else '', _br(v, 4)) for lab, v in pts)
+    dados = ','.join('["%s",%s,%d]' % (lab, v, 1 if lab in est else 0) for lab, v in pts)
     js = ('(function(){var d=[' + dados + '],box=document.getElementById("cj"),tip=document.getElementById("cj-tip"),svg=box.querySelector("svg"),cross=svg.querySelector(".cj-cross");'
           'function f(v){return v.toFixed(2).replace(".",",")}'
           'svg.querySelectorAll(".cj-hit").forEach(function(r){r.addEventListener("pointerenter",function(){var i=+r.dataset.i,b=r.getBBox(),cx=b.x+b.width/2,s=box.clientWidth/' + str(W) + ';'
           'cross.setAttribute("x1",cx);cross.setAttribute("x2",cx);cross.setAttribute("visibility","visible");'
-          'tip.textContent=d[i][0]+": "+f(d[i][1])+"% a.a.";tip.classList.remove("hidden");'
+          'tip.textContent=d[i][0]+": "+f(d[i][1])+"% a.a."+(d[i][2]?" (estimado)":"");tip.classList.remove("hidden");'
           'var left=cx*s-tip.offsetWidth/2;left=Math.max(0,Math.min(box.clientWidth-tip.offsetWidth,left));tip.style.left=left+"px";tip.style.top="0px";});});'
           'svg.addEventListener("pointerleave",function(){tip.classList.add("hidden");cross.setAttribute("visibility","hidden");});})();')
     return ('<figure class="flex flex-col gap-2 my-space-xs">'
@@ -125,7 +128,10 @@ def grafico_curva(c):
             '<details class="mt-2 font-body-sm text-body-sm text-on-surface-variant"><summary class="cursor-pointer text-secondary">Ver dados em tabela</summary>'
             '<table class="mt-2 w-full max-w-xs"><thead><tr><th class="text-left py-1 pr-4 font-semibold">Prazo</th><th class="text-right py-1 font-semibold">Taxa</th></tr></thead><tbody>' + linhas + '</tbody></table></details>'
             '</div>'
-            '<figcaption class="font-body-sm text-body-sm text-on-surface-variant">Fonte: ' + c['fonte'] + ', fechamento de ' + c['data'] + '.</figcaption></figure>'
+            '<figcaption class="font-body-sm text-body-sm text-on-surface-variant">Fonte: ' + c['fonte'] + ', fechamento de ' + c['data'] + '.'
+            + ((' Os prazos de ' + ' e '.join(sorted(est, key=[l for l, _ in pts].index)) + ' (pontos vazados) são estimados, não oficiais.') if est else '')
+            + ((' ' + c['nota']) if c.get('nota') else '')
+            + '</figcaption></figure>'
             '<script>' + js + '</script>')
 
 GRAFICO = grafico_curva(CURVA)
