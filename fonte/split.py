@@ -22,6 +22,7 @@ QUEM, VISAO = QUEM[:_q], QUEM[_q:]
 SERVICOS = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'servicos.html'), encoding='utf-8').read()
 COMO = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'como.html'), encoding='utf-8').read()
 _rd = lambda n: open(os.path.join(os.path.dirname(os.path.abspath(__file__)), n), encoding='utf-8').read()
+MODELAGEM = _rd('modelagem.html')
 ART_ECON, ART_CURVA, NOT_LISTA, ART_CTRL, ART_CRESCER = _rd('art_econ.html'), _rd('art_curva.html'), _rd('noticias_lista.html'), _rd('art_ctrl.html'), _rd('art_crescer.html')
 EXTRA_TITLES = {'/noticias/crescer-com-retorno': 'Crescer não basta: retorno, caixa e ciclos', '/noticias/controladoria-estrategica': 'Controladoria Estratégica', '/noticias/economista-na-empresa': 'Sua empresa precisa de um economista?', '/noticias/curva-de-juros': 'Além da Selic: o que a curva de juros mostra'}
 prefix = src[:sec_start]
@@ -43,7 +44,7 @@ suffix = suffix.replace("dd.querySelectorAll('a').forEach", "dd.querySelectorAll
 # ---------- menu structure ----------
 MENU = [
     ('sobre', 'Sobre', [('/sobre', 'Quem somos'), ('/sobre/nossa-visao', 'Nossa visão'), ('/sobre/para-quem', 'Para quem é')]),
-    ('servicos', 'Serviços', [('/servicos', 'Nossos serviços'), ('/servicos/como-trabalhamos', 'Como trabalhamos'),
+    ('servicos', 'Serviços', [('/servicos', 'Nossos serviços'), ('/servicos/modelagem-de-a-a-z', 'Modelagem de A a Z'), ('/servicos/como-trabalhamos', 'Como trabalhamos'),
                               ('/servicos/contratacao', 'Modelos de contratação'), ('/servicos/duvidas', 'Dúvidas')]),
     ('noticias', 'Notícias e Artigos', [('/noticias', 'Notícias e Artigos')]),
     ('contato', 'Contato', [('/contato', 'Contato')]),
@@ -173,6 +174,7 @@ PAGES = [
     ('sobre/nossa-visao', 'sobre', '/sobre/nossa-visao', [VISAO]),
     ('sobre/para-quem', 'sobre', '/sobre/para-quem', [S['6']]),
     ('servicos', 'servicos', '/servicos', [SERVICOS]),
+    ('servicos/modelagem-de-a-a-z', 'servicos', '/servicos/modelagem-de-a-a-z', [MODELAGEM]),
     ('servicos/como-trabalhamos', 'servicos', '/servicos/como-trabalhamos', [COMO]),
     ('servicos/contratacao', 'servicos', '/servicos/contratacao', [S['10']]),
     ('servicos/duvidas', 'servicos', '/servicos/duvidas', [S['11']]),
@@ -191,6 +193,7 @@ DESCRICOES = {
     '/sobre/nossa-visao': 'Lucro não é o mesmo que rentabilidade. Por que o EBITDA não é caixa e como o EVA mostra se a sua empresa realmente cria valor.',
     '/sobre/para-quem': 'Para empresários, sócios, investidores e empresas em preparação para M&A, com faturamento acima de R$ 10 milhões por ano.',
     '/servicos': 'FP&A, controladoria, modelagem financeira, valuation, M&A, gestão de caixa, planejamento estratégico e governança para empresas de médio e grande porte.',
+    '/servicos/modelagem-de-a-a-z': 'Modelagem de A a Z: modelo de project finance online, com 180 meses, 7 cenários, DRE, DFC e Balanço integrados e valuation por FCFF, FCFE e DDM. Assinatura HAUMA.',
     '/servicos/como-trabalhamos': 'Do alinhamento com NDA ao acompanhamento mensal: as 6 etapas do trabalho da HAUMA e o diagnóstico financeiro em 3 a 5 semanas.',
     '/servicos/contratacao': 'Projeto pontual de modelagem e valuation, FP&A contínuo ou advisory para M&A e sócios: escolha o formato ideal para a sua empresa.',
     '/servicos/duvidas': 'Perguntas frequentes sobre FP&A, faturamento mínimo, atendimento remoto, sigilo das informações e prazo do diagnóstico financeiro.',
