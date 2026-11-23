@@ -5,3 +5,5 @@ code.html
 
 .firebase/
 firebase-debug.log
+
+__pycache__/
