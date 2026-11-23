@@ -182,6 +182,23 @@ PAGES = [
     ('contato', 'contato', '/contato', [CONTACT, S['12']]),
 ]
 
+
+DESCRICOES = {
+    '/': 'Consultoria em finanças corporativas, FP&A e governança para empresas de médio e grande porte. Modelagem integrada de DRE, Fluxo de Caixa e Balanço.',
+    '/sobre': 'Conheça a HAUMA: consultoria conduzida pelo economista José Mario dos Santos, com mais de 30 anos em gestão estratégica e finanças corporativas.',
+    '/sobre/nossa-visao': 'Lucro não é o mesmo que rentabilidade. Por que o EBITDA não é caixa e como o EVA mostra se a sua empresa realmente cria valor.',
+    '/sobre/para-quem': 'Para empresários, sócios, investidores e empresas em preparação para M&A, com faturamento acima de R$ 10 milhões por ano.',
+    '/servicos': 'FP&A, controladoria, modelagem financeira, valuation, M&A, gestão de caixa, planejamento estratégico e governança para empresas de médio e grande porte.',
+    '/servicos/como-trabalhamos': 'Do alinhamento com NDA ao acompanhamento mensal: as 6 etapas do trabalho da HAUMA e o diagnóstico financeiro em 3 a 5 semanas.',
+    '/servicos/contratacao': 'Projeto pontual de modelagem e valuation, FP&A contínuo ou advisory para M&A e sócios: escolha o formato ideal para a sua empresa.',
+    '/servicos/duvidas': 'Perguntas frequentes sobre FP&A, faturamento mínimo, atendimento remoto, sigilo das informações e prazo do diagnóstico financeiro.',
+    '/noticias': 'Artigos da HAUMA sobre economia de empresas, gestão financeira, juros e decisões estratégicas para empresas de médio e grande porte.',
+    '/noticias/economista-na-empresa': 'Economia de empresas vai muito além de câmbio, juros e inflação. Por que a empresa familiar de médio porte é a que mais perde sem essa leitura.',
+    '/noticias/curva-de-juros': 'A diferença entre a Selic e a curva de juros, por que as taxas longas podem seguir altas e o que isso muda no custo de capital da sua empresa.',
+    '/contato': 'Fale com a HAUMA por WhatsApp, telefone ou e-mail, ou solicite um diagnóstico financeiro confidencial para a sua empresa.',
+}
+OLD_DESC = '<meta name="description" content="Pare de andar no escuro na gestão financeira da sua empresa. Consultoria financeira HAUMA."/>'
+
 WIDTH_CSS = ('@media (min-width:1024px){main section,footer{padding-left:max(2rem,calc((100% - 72rem)/2))!important;'
              'padding-right:max(2rem,calc((100% - 72rem)/2))!important;}}')
 
@@ -197,6 +214,9 @@ for fname, group, path, body in PAGES:
     pre = pre.replace('content="HAUMA Consultoria"/>', 'content="%s"/>' % title, 1)
     pre = pre.replace('<link rel="canonical" href="%s/"/>' % BASE, '<link rel="canonical" href="%s%s"/>' % (BASE, path), 1)
     pre = pre.replace('<meta property="og:url" content="%s/"/>' % BASE, '<meta property="og:url" content="%s%s"/>' % (BASE, path), 1)
+    d = DESCRICOES[path].replace('&', '&amp;')
+    assert pre.count(OLD_DESC) == 1
+    pre = pre.replace(OLD_DESC, '<meta name="description" content="%s"/><meta property="og:description" content="%s"/>' % (d, d), 1)
     active_bottom = {'home': 'home', 'sobre': 'sobre', 'servicos': 'servicos', 'noticias': None, 'contato': 'contato'}[group]
     if path == '/contato#diagnostico-form':
         active_bottom = 'agendar'
@@ -206,3 +226,13 @@ for fname, group, path, body in PAGES:
     os.makedirs(os.path.dirname(out), exist_ok=True)
     open(out, 'w', encoding='utf-8', newline='').write(html)
     print(fname, len(html), 'anchors-left:', len(re.findall(r'href="#[a-z]', html)))
+
+# ---------- sitemap.xml e robots.txt ----------
+import datetime
+hoje = datetime.date.today().isoformat()
+urls = ''.join('  <url><loc>%s%s</loc><lastmod>%s</lastmod></url>\n' % (BASE, path, hoje) for _, _, path, _ in PAGES)
+open(os.path.join(pub, 'sitemap.xml'), 'w', encoding='utf-8', newline='\n').write(
+    '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + '</urlset>\n')
+open(os.path.join(pub, 'robots.txt'), 'w', encoding='utf-8', newline='\n').write(
+    'User-agent: *\nAllow: /\n\nSitemap: %s/sitemap.xml\n' % BASE)
+print('sitemap:', len(PAGES), 'paginas')
