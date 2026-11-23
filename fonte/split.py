@@ -22,8 +22,8 @@ QUEM, VISAO = QUEM[:_q], QUEM[_q:]
 SERVICOS = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'servicos.html'), encoding='utf-8').read()
 COMO = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'como.html'), encoding='utf-8').read()
 _rd = lambda n: open(os.path.join(os.path.dirname(os.path.abspath(__file__)), n), encoding='utf-8').read()
-ART_ECON, ART_CURVA, NOT_LISTA, ART_CTRL = _rd('art_econ.html'), _rd('art_curva.html'), _rd('noticias_lista.html'), _rd('art_ctrl.html')
-EXTRA_TITLES = {'/noticias/controladoria-estrategica': 'Controladoria Estratégica', '/noticias/economista-na-empresa': 'Sua empresa precisa de um economista?', '/noticias/curva-de-juros': 'Além da Selic: o que a curva de juros mostra'}
+ART_ECON, ART_CURVA, NOT_LISTA, ART_CTRL, ART_CRESCER = _rd('art_econ.html'), _rd('art_curva.html'), _rd('noticias_lista.html'), _rd('art_ctrl.html'), _rd('art_crescer.html')
+EXTRA_TITLES = {'/noticias/crescer-com-retorno': 'Crescer não basta: retorno, caixa e ciclos', '/noticias/controladoria-estrategica': 'Controladoria Estratégica', '/noticias/economista-na-empresa': 'Sua empresa precisa de um economista?', '/noticias/curva-de-juros': 'Além da Selic: o que a curva de juros mostra'}
 prefix = src[:sec_start]
 suffix = src[sec_end:]
 
@@ -177,6 +177,7 @@ PAGES = [
     ('servicos/contratacao', 'servicos', '/servicos/contratacao', [S['10']]),
     ('servicos/duvidas', 'servicos', '/servicos/duvidas', [S['11']]),
     ('noticias', 'noticias', '/noticias', [NOT_LISTA]),
+    ('noticias/crescer-com-retorno', 'noticias', '/noticias/crescer-com-retorno', [ART_CRESCER]),
     ('noticias/controladoria-estrategica', 'noticias', '/noticias/controladoria-estrategica', [ART_CTRL]),
     ('noticias/economista-na-empresa', 'noticias', '/noticias/economista-na-empresa', [ART_ECON]),
     ('noticias/curva-de-juros', 'noticias', '/noticias/curva-de-juros', [ART_CURVA]),
@@ -194,6 +195,7 @@ DESCRICOES = {
     '/servicos/contratacao': 'Projeto pontual de modelagem e valuation, FP&A contínuo ou advisory para M&A e sócios: escolha o formato ideal para a sua empresa.',
     '/servicos/duvidas': 'Perguntas frequentes sobre FP&A, faturamento mínimo, atendimento remoto, sigilo das informações e prazo do diagnóstico financeiro.',
     '/noticias': 'Artigos da HAUMA sobre economia de empresas, gestão financeira, juros e decisões estratégicas para empresas de médio e grande porte.',
+    '/noticias/crescer-com-retorno': 'Crescer não basta: por que ROIC, WACC, capital de giro e geração de caixa definem se a empresa cria valor de verdade.',
     '/noticias/controladoria-estrategica': 'Controladoria estratégica vai além de relatórios: conecta números, indicadores e planejamento para decisões que geram valor.',
     '/noticias/economista-na-empresa': 'Economia de empresas vai muito além de câmbio, juros e inflação. Por que a empresa familiar de médio porte é a que mais perde sem essa leitura.',
     '/noticias/curva-de-juros': 'A diferença entre a Selic e a curva de juros, por que as taxas longas podem seguir altas e o que isso muda no custo de capital da sua empresa.',

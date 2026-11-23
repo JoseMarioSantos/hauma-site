@@ -175,10 +175,11 @@ art_ctrl = artigo('artigo', T_CTRL, CTRL_IMG + '\n' + paras(CTRL_A) + '\n' + lis
 
 def card(href, titulo, resumo, icon, img=None):
     if img:
-        top = ('<div class="-mx-space-md -mt-space-md mb-1 h-44 overflow-hidden">'
-               '<img class="w-full h-full object-cover object-top" src="%s" alt="" loading="lazy"/></div>' % img)
+        top = ('<div class="-mx-space-md -mt-space-md mb-1 aspect-[408/127] overflow-hidden bg-[#13233a]">'
+               '<img class="w-full h-full object-cover" src="%s" alt="" loading="lazy"/></div>' % img)
     else:
-        top = '<span class="material-symbols-outlined text-[26px] text-secondary">%s</span>' % icon
+        top = ('<div class="-mx-space-md -mt-space-md mb-1 aspect-[408/127] bg-[#13233a] flex items-center justify-center">'
+               '<span class="material-symbols-outlined text-[48px] text-[#e9c349]">%s</span></div>' % icon)
     return ('<a class="group bg-surface-container p-space-md rounded-xl shadow-sm flex flex-col gap-2 hover:shadow-md transition-shadow overflow-hidden" href="%s">' % href
             + top +
             '<span class="font-label-badge text-label-badge uppercase tracking-widest text-secondary">Artigo</span>'
@@ -187,17 +188,51 @@ def card(href, titulo, resumo, icon, img=None):
             '<span class="mt-auto inline-flex items-center gap-1 font-label-executive text-label-executive uppercase tracking-wider text-secondary">Ler artigo'
             '<span class="material-symbols-outlined text-[16px]">arrow_forward</span></span></a>' % (titulo, resumo))
 
+CRESCER_A = """
+Finanças não são só sobre “fechar o mês”. São sobre alocar capital antes que a decisão operacional destrua valor.
+
+Uma empresa pode apresentar crescimento de receita, EBITDA positivo e expansão de mercado e, ainda assim, deteriorar sua saúde financeira. Será?
+
+Sim. Isso acontece quando três variáveis deixam de conversar: crescimento, capital de giro e estrutura de capital.
+"""
+CRESCER_RISCOS = [
+    'Crescer sem controlar o ciclo financeiro pode consumir caixa.',
+    'Cortar despesas colocando o compliance em risco pode custar mais caro no final.',
+    'Investir sem retorno superior ao custo de capital, ou com prazo longo demais, pode ampliar ativos e destruir valor.',
+]
+CRESCER_B = """
+O ponto não é apenas saber se a empresa lucra. É saber se ela gera caixa de forma recorrente, remunerando adequadamente o capital empregado.
+
+Algumas perguntas que precisam estar na mesa da liderança:
+"""
+CRESCER_PERGUNTAS = ['O ROIC supera o WACC?', 'O EBITDA está se convertendo em caixa operacional?', 'Quanto do crescimento está sendo financiado por capital de giro?', 'Qual é o prazo médio da dívida, seu custo efetivo e a exposição a juros?', 'Os covenants suportam um cenário de queda de margem ou atraso nos recebimentos?', 'O CAPEX está aumentando capacidade ou apenas corrigindo ineficiências passadas?', 'Qual unidade, produto ou cliente consome caixa sem retorno compatível?']
+CRESCER_C = """
+Porque EBITDA não paga dívida sozinho. Lucro contábil não garante liquidez. E faturamento não é criação de valor.
+
+A gestão financeira madura transforma a empresa em um sistema de decisões: onde investir, onde reduzir exposição, quanto financiar, qual risco aceitar e quando preservar caixa.
+"""
+CRESCER_FECHO = ('<p class="font-headline-sm text-headline-sm italic text-on-surface border-l-4 border-secondary pl-space-md">'
+                 'A empresa financeiramente forte não é a que cresce a qualquer custo. É a que cresce com retorno, caixa e capacidade de atravessar ciclos.</p>')
+_riscos = ('<ul class="flex flex-col gap-2">' + ''.join(
+    '<li class="flex gap-3"><span class="material-symbols-outlined text-[20px] text-secondary mt-0.5">warning</span><span>%s</span></li>' % r for r in CRESCER_RISCOS) + '</ul>')
+_perg = ('<ol class="flex flex-col gap-2 bg-surface-container p-space-md rounded-xl shadow-sm">' + ''.join(
+    '<li class="flex gap-3 text-on-surface"><span class="shrink-0 w-6 h-6 rounded-full bg-secondary text-on-secondary flex items-center justify-center font-bold text-xs mt-0.5">%d</span><span>%s</span></li>' % (i + 1, q)
+    for i, q in enumerate(CRESCER_PERGUNTAS)) + '</ol>')
+T_CRESCER = 'Crescer não basta: retorno, caixa e capacidade de atravessar ciclos'
+art_crescer = artigo('artigo', T_CRESCER, paras(CRESCER_A) + '\n' + _riscos + '\n' + paras(CRESCER_B) + '\n' + _perg + '\n' + paras(CRESCER_C) + '\n' + CRESCER_FECHO)
+
 lista = ('<!-- ==================== LISTA DE ARTIGOS ==================== -->\n'
          '<section id="artigos" class="px-margin-mobile py-space-xl flex flex-col gap-space-md">'
          '<div class="flex flex-col gap-space-xs">'
          '<span class="font-label-badge text-label-badge uppercase tracking-widest text-secondary">Conteúdo</span>'
          '<h1 class="font-headline-lg text-headline-lg text-on-surface">Notícias e Artigos</h1></div>'
-         '<div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-space-md">'
+         '<div class="grid sm:grid-cols-2 gap-space-md">'
+         + card('/noticias/crescer-com-retorno', T_CRESCER, 'Crescimento, EBITDA positivo e expansão não bastam: por que retorno sobre o capital e geração de caixa definem a saúde da empresa.', 'trending_up')
          + card('/noticias/controladoria-estrategica', T_CTRL, 'Mais do que relatórios: como a controladoria conecta números, indicadores e estratégia para apoiar decisões que geram valor.', 'monitoring', '/img/controladoria-capa.webp')
          + card('/noticias/economista-na-empresa', T_ECON, 'Economia de empresas vai muito além de câmbio, juros e inflação, e é a empresa familiar de médio porte que mais perde sem essa leitura.', 'domain')
          + card('/noticias/curva-de-juros', T_CURVA, 'A diferença entre o juro de hoje e os juros que o mercado negocia para o futuro, e o que isso muda para a sua empresa.', 'show_chart')
          + '</div></section>\n')
 
-for name, frag in [('art_ctrl.html', art_ctrl), ('art_econ.html', art_econ), ('art_curva.html', art_curva), ('noticias_lista.html', lista)]:
+for name, frag in [('art_crescer.html', art_crescer), ('art_ctrl.html', art_ctrl), ('art_econ.html', art_econ), ('art_curva.html', art_curva), ('noticias_lista.html', lista)]:
     open(os.path.join(D, name), 'w', encoding='utf-8').write(frag)
 print('ok')
