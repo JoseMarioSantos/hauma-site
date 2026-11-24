@@ -160,7 +160,8 @@ CONTACT = ('<!-- ==================== DADOS DE CONTATO ==================== -->\
     '<div class="flex flex-col">'
     '<a class="flex items-center gap-3 py-3 border-b border-outline-variant text-on-surface hover:text-secondary" href="mailto:jmario.hauma@outlook.com"><span class="material-symbols-outlined text-[20px] text-secondary">mail</span><span class="font-body-md text-body-md">jmario.hauma@outlook.com</span></a>'
     '<a class="flex items-center gap-3 py-3 border-b border-outline-variant text-on-surface hover:text-secondary" href="tel:+5517997115321"><span class="material-symbols-outlined text-[20px] text-secondary">call</span><span class="font-body-md text-body-md">+55 (17) 9 99711-5321</span></a>'
-    '<div class="flex items-center gap-3 py-3 text-on-surface-variant"><span class="material-symbols-outlined text-[20px] text-secondary">pin_drop</span><span class="font-body-md text-body-md">Atendimento nacional (eixo SP e capitais)</span></div>'
+    '<div class="flex items-center gap-3 py-3 text-on-surface-variant"><span class="material-symbols-outlined text-[20px] text-secondary">pin_drop</span><span class="font-body-md text-body-md">Sede em Bebedouro – SP · atendimento nacional (eixo SP e capitais)</span></div>'
+    '<a class="flex items-center gap-3 py-3 text-on-surface hover:text-secondary" href="https://www.ohub.com.br/empresa/hauma-solucoes-empresariais-ltda-bebedouro-sp-742652" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-[20px] text-[#1f8a3b]">verified</span><span class="font-body-md text-body-md">Documentos verificados no OHUB</span></a>'
     '</div>'
     '<div class="mt-space-xs flex flex-col sm:flex-row gap-space-sm">'
     '<a class="flex-1 inline-flex items-center justify-center gap-2 h-12 px-space-md rounded-lg bg-secondary text-on-secondary font-label-executive text-label-executive uppercase tracking-wider" href="https://wa.me/5517997115321" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-[18px]">chat</span>WhatsApp</a>'
@@ -192,7 +193,7 @@ DESCRICOES = {
     '/sobre': 'Conheça a HAUMA: consultoria conduzida pelo economista José Mario dos Santos, com mais de 30 anos em gestão estratégica e finanças corporativas.',
     '/sobre/nossa-visao': 'Lucro não é o mesmo que rentabilidade. Por que o EBITDA não é caixa e como o EVA mostra se a sua empresa realmente cria valor.',
     '/sobre/para-quem': 'Para empresários, sócios, investidores e empresas em preparação para M&A, com faturamento acima de R$ 10 milhões por ano.',
-    '/servicos': 'FP&A, controladoria, modelagem financeira, valuation, M&A, gestão de caixa, planejamento estratégico e governança para empresas de médio e grande porte.',
+    '/servicos': 'FP&A, controladoria, DRE gerencial, painéis em Power BI, modelagem financeira, valuation, estudos de viabilidade, gestão de caixa e governança para empresas de médio e grande porte.',
     '/servicos/modelagem-de-a-a-z': 'Modelagem de A a Z: modelo de project finance online, com 180 meses, 7 cenários, DRE, DFC e Balanço integrados e valuation por FCFF, FCFE e DDM. Assinatura HAUMA.',
     '/servicos/como-trabalhamos': 'Do alinhamento com NDA ao acompanhamento mensal: as 6 etapas do trabalho da HAUMA e o diagnóstico financeiro em 3 a 5 semanas.',
     '/servicos/contratacao': 'Projeto pontual de modelagem e valuation, FP&A contínuo ou advisory para M&A e sócios: escolha o formato ideal para a sua empresa.',
