@@ -189,8 +189,8 @@ PAGES = [
 
 
 DESCRICOES = {
-    '/': 'Consultoria em finanças corporativas, FP&A e governança para empresas de médio e grande porte. Modelagem integrada de DRE, Fluxo de Caixa e Balanço.',
-    '/sobre': 'Conheça a HAUMA: consultoria conduzida pelo economista José Mario dos Santos, com mais de 30 anos em gestão estratégica e finanças corporativas.',
+    '/': 'Consultoria empresarial e financeira em Bebedouro – SP, com atendimento em todo o Brasil: FP&A, controladoria, modelagem financeira e governança para empresas de médio e grande porte.',
+    '/sobre': 'Conheça a HAUMA, consultoria empresarial em Bebedouro – SP conduzida pelo economista José Mario dos Santos, com mais de 30 anos em gestão estratégica e finanças corporativas.',
     '/sobre/nossa-visao': 'Lucro não é o mesmo que rentabilidade. Por que o EBITDA não é caixa e como o EVA mostra se a sua empresa realmente cria valor.',
     '/sobre/para-quem': 'Para empresários, sócios, investidores e empresas em preparação para M&A, com faturamento acima de R$ 10 milhões por ano.',
     '/servicos': 'FP&A, controladoria, DRE gerencial, painéis em Power BI, modelagem financeira, valuation, estudos de viabilidade, gestão de caixa e governança para empresas de médio e grande porte.',
@@ -212,7 +212,7 @@ WIDTH_CSS = ('@media (min-width:1024px){main section,footer{padding-left:max(2re
 
 for fname, group, path, body in PAGES:
     if group == 'home':
-        title = 'HAUMA Consultoria'
+        title = 'HAUMA Consultoria | Consultoria empresarial e financeira em Bebedouro – SP'
     else:
         g = [m for m in MENU if m[0] == group][0]
         title = ([t for h, t in g[2] if h == path] or [EXTRA_TITLES.get(path)])[0] + ' | HAUMA Consultoria'
