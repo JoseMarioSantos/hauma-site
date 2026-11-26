@@ -23,6 +23,7 @@ SERVICOS = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'servic
 COMO = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'como.html'), encoding='utf-8').read()
 _rd = lambda n: open(os.path.join(os.path.dirname(os.path.abspath(__file__)), n), encoding='utf-8').read()
 MODELAGEM = _rd('modelagem.html')
+MOTOR = _rd('motor.html')
 ART_ECON, ART_CURVA, NOT_LISTA, ART_CTRL, ART_CRESCER = _rd('art_econ.html'), _rd('art_curva.html'), _rd('noticias_lista.html'), _rd('art_ctrl.html'), _rd('art_crescer.html')
 EXTRA_TITLES = {'/noticias/crescer-com-retorno': 'Crescer não basta: retorno, caixa e ciclos', '/noticias/controladoria-estrategica': 'Controladoria Estratégica', '/noticias/economista-na-empresa': 'Sua empresa precisa de um economista?', '/noticias/curva-de-juros': 'Além da Selic: o que a curva de juros mostra'}
 prefix = src[:sec_start]
@@ -44,7 +45,7 @@ suffix = suffix.replace("dd.querySelectorAll('a').forEach", "dd.querySelectorAll
 # ---------- menu structure ----------
 MENU = [
     ('sobre', 'Sobre', [('/sobre', 'Quem somos'), ('/sobre/nossa-visao', 'Nossa visão'), ('/sobre/para-quem', 'Para quem é')]),
-    ('servicos', 'Serviços', [('/servicos', 'Nossos serviços'), ('/servicos/modelagem-de-a-a-z', 'Modelagem de A a Z'), ('/servicos/como-trabalhamos', 'Como trabalhamos'),
+    ('servicos', 'Serviços', [('/servicos', 'Nossos serviços'), ('/servicos/modelagem-de-a-a-z', 'Modelagem de A a Z'), ('/servicos/motor-de-modelagem', 'Motor de modelagem'), ('/servicos/como-trabalhamos', 'Como trabalhamos'),
                               ('/servicos/contratacao', 'Modelos de contratação'), ('/servicos/duvidas', 'Dúvidas')]),
     ('noticias', 'Notícias e Artigos', [('/noticias', 'Notícias e Artigos')]),
     ('contato', 'Contato', [('/contato', 'Contato')]),
@@ -176,6 +177,7 @@ PAGES = [
     ('sobre/para-quem', 'sobre', '/sobre/para-quem', [S['6']]),
     ('servicos', 'servicos', '/servicos', [SERVICOS]),
     ('servicos/modelagem-de-a-a-z', 'servicos', '/servicos/modelagem-de-a-a-z', [MODELAGEM]),
+    ('servicos/motor-de-modelagem', 'servicos', '/servicos/motor-de-modelagem', [MOTOR]),
     ('servicos/como-trabalhamos', 'servicos', '/servicos/como-trabalhamos', [COMO]),
     ('servicos/contratacao', 'servicos', '/servicos/contratacao', [S['10']]),
     ('servicos/duvidas', 'servicos', '/servicos/duvidas', [S['11']]),
@@ -196,6 +198,7 @@ DESCRICOES = {
     '/servicos': 'FP&A, controladoria, DRE gerencial, painéis em Power BI, modelagem financeira, valuation, estudos de viabilidade, gestão de caixa e governança para empresas de médio e grande porte.',
     '/servicos/modelagem-de-a-a-z': 'Modelagem de A a Z: modelo de project finance online, com 180 meses, 7 cenários, DRE, DFC e Balanço integrados e valuation por FCFF, FCFE e DDM. Assinatura HAUMA.',
     '/servicos/como-trabalhamos': 'Do alinhamento com NDA ao acompanhamento mensal: as 6 etapas do trabalho da HAUMA e o diagnóstico financeiro em 3 a 5 semanas.',
+    '/servicos/motor-de-modelagem': 'Motor de Modelagem HAUMA: DRE, DFC e Balanço integrados, valuation por FCFF e FCFE, bridge de EBITDA, dívida, capital de giro e cenários. Veja a demonstração interativa.',
     '/servicos/contratacao': 'Projeto pontual de modelagem e valuation, FP&A contínuo ou advisory para M&A e sócios: escolha o formato ideal para a sua empresa.',
     '/servicos/duvidas': 'Perguntas frequentes sobre FP&A, faturamento mínimo, atendimento remoto, sigilo das informações e prazo do diagnóstico financeiro.',
     '/noticias': 'Artigos da HAUMA sobre economia de empresas, gestão financeira, juros e decisões estratégicas para empresas de médio e grande porte.',
@@ -238,7 +241,9 @@ for fname, group, path, body in PAGES:
 # ---------- sitemap.xml e robots.txt ----------
 import datetime
 hoje = datetime.date.today().isoformat()
-urls = ''.join('  <url><loc>%s%s</loc><lastmod>%s</lastmod></url>\n' % (BASE, path, hoje) for _, _, path, _ in PAGES)
+EXTRA_URLS = ['/servicos/motor-de-modelagem-demonstracao']  # páginas geradas fora deste script (fonte/demo/gerar_demo.js)
+urls = ''.join('  <url><loc>%s%s</loc><lastmod>%s</lastmod></url>\n' % (BASE, path, hoje)
+               for path in [p for _, _, p, _ in PAGES] + EXTRA_URLS)
 open(os.path.join(pub, 'sitemap.xml'), 'w', encoding='utf-8', newline='\n').write(
     '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + urls + '</urlset>\n')
 open(os.path.join(pub, 'robots.txt'), 'w', encoding='utf-8', newline='\n').write(
